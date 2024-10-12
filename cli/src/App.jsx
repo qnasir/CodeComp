@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Login from './components/Auth/Login';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
-import SelectDifficulty from './pages/SelectDifficulty';
+import SelectMode from './pages/SelectMode';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import Register from './components/Auth/Register';
 
@@ -21,7 +21,7 @@ const App = () => {
             path="/select-difficulty" 
             element={
               <ProtectedRoute>
-                <SelectDifficulty />
+                <SelectMode />
               </ProtectedRoute>
             } 
           />
