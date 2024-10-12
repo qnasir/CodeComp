@@ -1,3 +1,4 @@
+import './SelectDifficulty.css'; 
 
 const SelectDifficulty = () => {
   const difficulties = ['Easy', 'Medium', 'Hard'];

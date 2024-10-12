@@ -21,7 +21,9 @@ const Login = () => {
 
     try {
       // Send POST request to login API
-      const response = await fetch('http://localhost:5000/api/login', { // Replace with your API URL
+
+      console.log("userDetails", userCredentials)
+      const response = await fetch('http://localhost:5000/api/auth/login', { // Replace with your API URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
