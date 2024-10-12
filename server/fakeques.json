@@ -1,0 +1,9 @@
+{
+  "title": "Sum of Two Numbers",
+  "description": "Write a function that returns the sum of two numbers.",
+  "difficulty": "easy",
+  "testCases": [
+    { "input": "1, 2", "output": "3" },
+    { "input": "3, 5", "output": "8" }
+  ]
+}
