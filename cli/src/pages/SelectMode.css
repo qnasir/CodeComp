@@ -1,0 +1,81 @@
+  .select-mode-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://futuramo.com/blog/wp-content/uploads/2023/05/pexels-luis-gomes-546819-800x500.jpg') no-repeat center center/cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly lighter overlay for better contrast */
+    text-align: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .select-mode-page h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+  }
+  
+  .select-mode-page p {
+    font-size: 1.5rem;
+    color: #e0e0e0; /* Light gray for contrast */
+    margin-bottom: 40px;
+  }
+  
+  .mode-options {
+    display: flex;
+    gap: 40px; /* Space between buttons */
+  }
+  
+  .mode-button {
+    padding: 20px 40px; /* Increased padding */
+    font-size: 1.5rem; /* Larger font size for visibility */
+    font-weight: bold;
+    border-radius: 10px; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+  
+  /* Practice Button Styling */
+  .mode-button:nth-child(1) {
+    background: linear-gradient(135deg, #68d391, #4caf50); /* Soft green for Practice */
+  }
+  
+  .mode-button:nth-child(1):hover {
+    background: linear-gradient(135deg, #57b447, #388e3c);
+    transform: translateY(-5px);
+  }
+  
+  /* Battle Button Styling */
+  .mode-button:nth-child(2) {
+    background: linear-gradient(135deg, #f472b6, #d53f8c); /* Soft pink for Battle */
+  }
+  
+  .mode-button:nth-child(2):hover {
+    background: linear-gradient(135deg, #e439a8, #9d1760);
+    transform: translateY(-5px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .mode-options {
+      flex-direction: column;
+      gap: 20px; /* Adjust gap for smaller screens */
+    }
+  
+    .mode-button {
+      width: 80%; /* Full width for buttons on mobile */
+    }
+  
+    .select-mode-page h1 {
+      font-size: 2.5rem; /* Adjust header size on mobile */
+    }
+  }
+  

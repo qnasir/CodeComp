@@ -22,8 +22,7 @@ const Login = () => {
     try {
       // Send POST request to login API
 
-      console.log("userDetails", userCredentials)
-      const response = await fetch('http://localhost:5000/api/auth/login', { // Replace with your API URL
+      const response = await fetch('http://localhost:5000/api/auth/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -38,7 +37,11 @@ const Login = () => {
       const data = await response.json();
 
       // Save the JWT token in localStorage
+      console.log(data)
       localStorage.setItem('token', data.token);
+      localStorage.setItem('id', data.user.id)
+      localStorage.setItem('username', data.user.username)
+      localStorage.setItem('email', data.user.email)
 
       // Redirect to dashboard or home page
       navigate('/');

@@ -1,0 +1,86 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure modal is on top */
+}
+
+.modal-content {
+  background: #2c2c2c; /* Dark background for the modal */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: #fff; /* White color for text */
+  margin-bottom: 20px;
+}
+
+.difficulty-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin-bottom: 20px;
+}
+
+.difficulty-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  color: #fff; /* White text for visibility */
+}
+
+/* Easy Button Styling */
+.difficulty-button:nth-child(1) {
+  background-color: #68d391; /* Light green for Easy */
+}
+
+.difficulty-button:nth-child(1):hover {
+  background-color: #57b447; /* Darker green on hover */
+  transform: translateY(-2px);
+}
+
+/* Medium Button Styling */
+.difficulty-button:nth-child(2) {
+  background-color: #ffa500; /* Orange for Medium */
+}
+
+.difficulty-button:nth-child(2):hover {
+  background-color: #ff8c00; /* Darker orange on hover */
+  transform: translateY(-2px);
+}
+
+/* Hard Button Styling */
+.difficulty-button:nth-child(3) {
+  background-color: #e63946; /* Red for Hard */
+}
+
+.difficulty-button:nth-child(3):hover {
+  background-color: #d62839; /* Darker red on hover */
+  transform: translateY(-2px);
+}
+
+.close-button {
+  background: #ff5252; /* Close button color */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: #ff1744; /* Change color on hover */
+}
