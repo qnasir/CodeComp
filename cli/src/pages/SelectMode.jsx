@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './SelectMode.css';
 import DifficultyModal from '../components/Modals/DifficultyModal';
-import { useHistory } from 'react-router-dom'; // Import useHistory for navigation
+import { useNavigate } from 'react-router-dom'; 
 
 const SelectMode = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleModeSelect = (mode) => {
     if (mode === 'Practice') {

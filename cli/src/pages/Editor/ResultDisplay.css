@@ -1,0 +1,17 @@
+.result-display {
+    margin-top: 20px;
+  }
+  
+  .result-display ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .passed {
+    color: green;
+  }
+  
+  .failed {
+    color: red;
+  }
+  

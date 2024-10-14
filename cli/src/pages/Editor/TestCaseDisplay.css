@@ -1,0 +1,13 @@
+.testcase-display h3 {
+    margin-bottom: 10px;
+  }
+  
+  .testcase-display ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .testcase-display li {
+    margin-bottom: 5px;
+  }
+  
