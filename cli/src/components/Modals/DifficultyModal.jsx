@@ -1,22 +1,24 @@
 import './DifficultyModal.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
-const DifficultyModal = ({ isOpen, onClose, onSelect }) => {
+const DifficultyModal = ({ isOpen, onClose }) => {
   const difficulties = ['Easy', 'Medium', 'Hard'];
+  const navigate = useNavigate(); // Hook for navigation
 
   if (!isOpen) return null;
 
   const handleSelect = async (difficulty) => {
     try {
       // Send POST request to the backend
-      const response = await fetch('http://your-backend-url/api/get-question', {
+      const response = await fetch('http://localhost:5000/api/question/get-question', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`, 
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
         body: JSON.stringify({
           difficulty, // Send the selected difficulty level
-          userId: 'userId' // Replace with actual user ID if needed
+          userId: 'userId', // Replace with actual user ID if needed
         }),
       });
 
@@ -25,9 +27,18 @@ const DifficultyModal = ({ isOpen, onClose, onSelect }) => {
       }
 
       const data = await response.json();
-      // Assuming the question is returned in data.question
-      onSelect(data.question); // Pass the question back to the parent component
-      onClose();
+      console.log(data);
+      const { question } = data;
+      const { testCases } = data.question;
+      console.log(question);
+      console.log(testCases);
+
+      // Navigate to the code editor page and pass the question and test cases
+      navigate('/code-editor', {
+        state: { question, testCases, difficulty }, // Pass the question and test cases to the code editor page
+      });
+
+      onClose(); // Close the modal after selection
     } catch (error) {
       console.error('Error fetching question:', error);
     }

@@ -8,6 +8,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import SelectMode from './pages/SelectMode';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import Register from './components/Auth/Register';
+import CodingPage from './pages/CodingPage';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="/code-editor" element={<CodingPage />} />
         </Routes>
         <Footer />
       </div>

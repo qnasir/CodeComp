@@ -1,0 +1,9 @@
+.language-selector {
+    margin-bottom: 10px;
+  }
+  
+  .language-selector select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  

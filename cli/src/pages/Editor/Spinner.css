@@ -1,0 +1,17 @@
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Adjust based on your needs */
+}
+
+.loading {
+    font-size: 1.2rem; /* Adjust as needed */
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
