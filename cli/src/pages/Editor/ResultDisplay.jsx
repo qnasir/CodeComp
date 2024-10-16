@@ -1,23 +1,28 @@
 import React from 'react';
 import './ResultDisplay.css';
 
-const ResultDisplay = ({ result }) => {
-  // Handle cases where result or result.testCases is undefined or null
-  console.log(result);
-  console.log(result.testCases);
-  if (!result || !result.testCases || !Array.isArray(result.testCases)) {
-    return <div className="result-display">No test case results available.</div>;
-  }
+const ResultDisplay = ({ result, testCases }) => {
+  // Handle cases where result or testCases is undefined or null
+  console.log("Result Display ", result);
+  console.log("Test Cases Display ", testCases);
 
   return (
     <div className="result-display">
       <h3>Test Case Results</h3>
       <ul>
-        {result.testCases.map((test, index) => (
-          <li key={index} className={test.passed ? 'passed' : 'failed'}>
-            <strong>Test {index + 1}:</strong> {test.passed ? 'Passed' : 'Failed'}
-          </li>
-        ))}
+        {testCases.map((test, index) => {
+          // Trim the result for accurate comparison
+          const actualOutput = result[index]?.trim(); // Safely access result[index] and trim it
+          const expectedOutput = test.expectedOutput;
+
+          return (
+            <li key={index} className={expectedOutput === actualOutput ? 'passed' : 'failed'}>
+              <div><strong>Test {index + 1}:</strong> {expectedOutput === actualOutput ? 'Passed' : 'Failed'}</div>
+              <div><strong>Expected Output:</strong> {expectedOutput}</div>
+              <div><strong>Actual Output:</strong> {actualOutput}</div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

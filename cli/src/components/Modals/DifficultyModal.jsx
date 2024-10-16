@@ -27,11 +27,8 @@ const DifficultyModal = ({ isOpen, onClose }) => {
       }
 
       const data = await response.json();
-      console.log(data);
       const { question } = data;
       const { testCases } = data.question;
-      console.log(question);
-      console.log(testCases);
 
       // Navigate to the code editor page and pass the question and test cases
       navigate('/code-editor', {

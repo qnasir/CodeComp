@@ -1,17 +1,95 @@
+/* Main container styling */
 .result-display {
-    margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* Test case results title */
+.result-display h3 {
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Styling for test case list */
+.result-display ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Styling for each test case item */
+.result-display li {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Styling for passed test case */
+.result-display .passed {
+  background-color: #e6f7e6;
+  color: #2d8b57;
+  border-left: 6px solid #34c759;
+}
+
+/* Styling for failed test case */
+.result-display .failed {
+  background-color: #ffe6e6;
+  color: #d32f2f;
+  border-left: 6px solid #ff3b30;
+}
+
+/* Hover effect for test case items */
+.result-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Expected and Actual output styling */
+.result-display div {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Bold labels for expected and actual output */
+.result-display strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Test result heading and details alignment */
+.result-display li strong {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Responsive: Make the layout adapt to smaller screens */
+@media (max-width: 768px) {
+  .result-display {
+    padding: 15px;
   }
-  
-  .result-display ul {
-    list-style-type: none;
-    padding: 0;
+
+  .result-display li {
+    padding: 12px;
   }
-  
-  .passed {
-    color: green;
+
+  .result-display h3 {
+    font-size: 1.5rem;
   }
-  
-  .failed {
-    color: red;
+
+  .result-display li strong {
+    font-size: 1rem;
   }
-  
+}

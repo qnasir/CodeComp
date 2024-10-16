@@ -12,7 +12,7 @@ body {
   flex-direction: row; /* Change to row for side-by-side layout */
   justify-content: space-between; /* Space between the sections */
   padding: 20px;
-  min-height: calc(100vh - 100px); /* Adjust height based on navbar and footer */
+  min-height: calc(100vh - 50px); /* Adjust height based on navbar and footer */
   box-sizing: border-box;
 }
 
@@ -88,7 +88,7 @@ button:hover {
 .run-code-section {
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack items vertically */
-  margin-top: 10px; /* Space above */
+  margin-top: 5px; /* Space above */
 }
 
 
