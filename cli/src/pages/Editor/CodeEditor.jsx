@@ -1,21 +1,34 @@
-import React from 'react';
-import CodeMirror from '@uiw/react-codemirror'; // Use the Controlled component
-import { javascript } from '@codemirror/lang-javascript';
-import { oneDark } from '@codemirror/theme-one-dark';
-import './CodeEditor.css';
+import Editor from "@monaco-editor/react";
+import './CodeEditor.css'
 
-const CodeEditor = ({ code, setCode }) => {
+const CodeEditor = ({code, setCode, language}) => {
+  const getLanguageName = (language) => {
+    const languageMap = {
+      63: 'javascript',
+      71: 'python',
+      53: 'cpp',
+      62: 'java',
+    };
+    return languageMap[language];
+  };
+
+  const editorOptions = {
+    fontSize: 15,
+    wordWrap: 'off',
+  }
+
   return (
     <div className="code-editor">
-      <CodeMirror
-        value={code} // This is the code value
-        height="400px" // Adjust height as necessary
-        theme={oneDark} // Use the oneDark theme
-        extensions={[javascript()]} // Add language extensions
-        onChange={(value) => setCode(value)} // Update code on change
+      <Editor
+        height={"460px"}
+        language={getLanguageName(language)}
+        value={code}
+        onChange={(value) => setCode(value)}
+        options={editorOptions}
+        theme={'vs-dark'}
       />
     </div>
-  );
-};
+  )
+}
 
 export default CodeEditor;

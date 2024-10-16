@@ -1,4 +1,4 @@
-.language-selector {
+/* .language-selector {
     margin-bottom: 10px;
   }
   
@@ -6,4 +6,34 @@
     padding: 5px;
     font-size: 16px;
   }
-  
+   */
+
+   /* Style for the language selector dropdown */
+select {
+  padding: 7px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+}
+
+/* Hover effect for the dropdown */
+select:hover {
+  background-color: #e6e6e6;
+}

@@ -1,4 +1,5 @@
 const languages = ['javascript', 'python', 'cpp', 'java'];
+import './LanguageSelector.css'
 
 const LanguageSelector = ({ onLanguageChange }) => (
   <select onChange={(e) => onLanguageChange(e.target.value)}>
