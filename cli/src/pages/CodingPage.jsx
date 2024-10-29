@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuestionDisplay from './Editor/QuestionDisplay';
 import TestCaseDisplay from './Editor/TestCaseDisplay';
 import CodeEditor from './Editor/CodeEditor';
@@ -20,8 +20,10 @@ const CodingPage = () => {
   const [isOutput, setIsOutput] = useState(false);
   const [isSpinner, setIsSpinner] = useState(false);
 
+
   const location = useLocation();
   const { question, testCases, difficulty } = location.state || {};
+
 
   const handleLanguageChange = (language) => {
     const id = getLanguageId(language);
@@ -135,10 +137,10 @@ const CodingPage = () => {
           stdin: btoa(testCases[input].input), // Encode test case input to base64
         }),
       });
-  
+
       const data = await response.json();
       const { token } = data;
-  
+
       const getResult = async (token) => {
         let resultData;
         while (true) {
@@ -148,9 +150,9 @@ const CodingPage = () => {
               'X-RapidAPI-Key': '553f78bd17mshcc97847b575ba91p1dd782jsndd8d898be4a0', // replace with your actual API key
             },
           });
-  
+
           resultData = await resultResponse.json();
-  
+
           if (resultData.status) {
             if (resultData.status.id === 2 || resultData.status.id === 1) {
               // Still processing or compiling
@@ -162,7 +164,7 @@ const CodingPage = () => {
             throw new Error("Error fetching result: " + JSON.stringify(resultData));
           }
         }
-  
+
         // Process the final result
         if (resultData.status.id === 3) {
           // Accepted
@@ -182,7 +184,7 @@ const CodingPage = () => {
           resultsArray[input] = "An unexpected error occurred.";
         }
       };
-  
+
       // Start polling for the result after submitting
       await getResult(token);
     } catch (error) {
@@ -190,21 +192,21 @@ const CodingPage = () => {
       resultsArray[input] = 'Error occurred while running the code.'; // Store error in the right index
     }
   };
-  
+
   // Handle running the code with predefined test cases
   const handleRunTestCases = async () => {
     setIsManualInputVisible(false);
     setIsSpinner(true);
-  
+
     const resultsArray = new Array(testCases.length); // Initialize an array with the same length as test cases
-  
-  
+
+
     try {
       // Use Promise.all to ensure all test cases are processed concurrently
       await Promise.all(
         testCases.map((_, index) => EvaluateInput(index, resultsArray))
       );
-  
+
       // Push the resultsArray to the state after all test cases have been processed
       setResult(resultsArray);
     } catch (err) {
@@ -218,7 +220,7 @@ const CodingPage = () => {
   return (
     <div className="coding-page">
       <div className="question-section">
-        <QuestionDisplay question={question.text} />
+        <QuestionDisplay question={question.text} difficulty={difficulty} />
         <TestCaseDisplay testCases={testCases} />
       </div>
 
@@ -259,18 +261,12 @@ const CodingPage = () => {
         {isRunningTestCases && (
           <div className="run-code-section">
             {/* <TestCaseDisplay testCases={testCases} /> */}
-            {isSpinner ? <Spinner /> : <ResultDisplay result={result} testCases={testCases} />}
+            {isSpinner ? <Spinner /> : <ResultDisplay result={result} testCases={testCases} difficulty={difficulty} />}
           </div>
         )}
 
       </div>
 
-      {/* Show test case results */}
-      {/* {result && (
-        <div className="run-code-section">
-          <ResultDisplay result={result} testCases={testCases} />
-        </div>
-      )} */}
     </div>
   );
 };
