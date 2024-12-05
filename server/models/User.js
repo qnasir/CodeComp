@@ -15,6 +15,14 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    required: false
+  },
+  bioInput: {
+    type: String,
+    required: false
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', UserSchema);

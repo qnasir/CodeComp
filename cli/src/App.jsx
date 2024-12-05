@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Auth/Login';
+import Profile from './pages/Profile';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 import SelectMode from './pages/SelectMode';
@@ -28,6 +29,7 @@ const App = () => {
           />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/code-editor" element={<CodingPage />} />
         </Routes>
         <Footer />
